@@ -17,13 +17,29 @@ function App() {
             path="/"
             element={
               <>
-                <Hero />
+                <Hero title="404 Error" currentPage="Error" />
                 <NotFoundSection />
               </>
             }
           />
-          <Route path="/booking" element={<BookingPage />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route
+            path="/booking"
+            element={
+              <>
+                <Hero title="Booking" currentPage="Booking" />
+                <BookingPage />
+              </>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+                <Hero title="About Us" currentPage="About" />
+                <AboutPage />
+              </>
+            }
+          />
         </Routes>
         <Footer />
       </div>

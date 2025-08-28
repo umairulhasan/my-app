@@ -1,26 +1,37 @@
+import { useState, useEffect } from 'react';
 import {
-  Search,
-  Menu,
-  Phone,
-  MapPin,
-  Mail,
-  Facebook,
-  Twitter,
-  Instagram,
-  ChevronDown,
-  Send,
   Play,
   Utensils,
 } from "lucide-react"
-import Hero from "./Hero"
+
 
 const AboutPage = () => {
+  const [staff, setStaff] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchStaff();
+  }, []);
+
+  const fetchStaff = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/staff');
+      if (!response.ok) {
+        throw new Error('Failed to fetch staff data');
+      }
+      const data = await response.json();
+      setStaff(data);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="about-page">
-      {/* Header */}
-      
-<Hero />
-      
+
 
       {/* Outdoor Activities Section */}
       <section className="outdoor-activities">
@@ -185,34 +196,24 @@ const AboutPage = () => {
           </div>
 
           <div className="staff-grid">
-            <div className="staff-card">
-              <img src="/professional-chef-with-apron.png" alt="Michael Dean" />
-              <div className="staff-info">
-                <h4>Michael Dean</h4>
-                <p>Chef Master</p>
-              </div>
-            </div>
-            <div className="staff-card">
-              <img src="/professional-hotel-manager-in-suit.png" alt="Arnold Taylor" />
-              <div className="staff-info">
-                <h4>Arnold Taylor</h4>
-                <p>Room Owner</p>
-              </div>
-            </div>
-            <div className="staff-card">
-              <img src="/assistant-chef-in-kitchen-uniform.png" alt="Michael Dean" />
-              <div className="staff-info">
-                <h4>Michael Dean</h4>
-                <p>Assistant Chef</p>
-              </div>
-            </div>
-            <div className="staff-card">
-              <img src="/hotel-supervisor-in-professional-attire.png" alt="Michael Dean" />
-              <div className="staff-info">
-                <h4>Michael Dean</h4>
-                <p>Supervisor</p>
-              </div>
-            </div>
+            {loading ? (
+              <p>Loading staff...</p>
+            ) : error ? (
+              <p>Error: {error}</p>
+            ) : (
+              staff.map((member) => (
+                <div className="staff-card" key={member._id}>
+                  <img 
+                    src={member.image || "/professional-chef-with-apron.png"} 
+                    alt={member.name} 
+                  />
+                  <div className="staff-info">
+                    <h4>{member.name}</h4>
+                    <p>{member.position}</p>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </section>
