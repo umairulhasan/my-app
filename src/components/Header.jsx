@@ -1,7 +1,7 @@
 // import "./Header.css"
 import { Search, Menu, Phone, MapPin, Mail, Facebook, Twitter, Instagram } from "lucide-react"
 import Button from "./Button"
-
+import { Link } from "react-router-dom"
 const Header = () => {
   return (
     <div className="header">
@@ -39,13 +39,17 @@ const Header = () => {
               <a href="#" className="nav-link">Rooms & Suites <span className="dropdown-arrow">▼</span></a>
               <a href="#" className="nav-link">Services <span className="dropdown-arrow">▼</span></a>
               <a href="#" className="nav-link">Blog <span className="dropdown-arrow">▼</span></a>
-              <a href="#" className="nav-link">Contact</a>
+              {/* <a href="#" className="nav-link">Contact</a> */}
+               <Link to="/about" className="nav-link">Contact</Link>
             </nav>
 
             <div className="header-actions">
               <Button variant="ghost" size="icon"><Search className="icon" /></Button>
               <Button variant="ghost" size="icon" className="mobile-menu"><Menu className="icon" /></Button>
-              <Button className="book-btn">Book Your Stay →</Button>
+              {/* <Button className="book-btn">Book Your Stay →</Button> */}
+              <Link to="/booking">
+        <button className="book-btn">Book Your Stay</button>
+      </Link>
             </div>
           </div>
         </div>
