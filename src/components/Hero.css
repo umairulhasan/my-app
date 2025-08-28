@@ -1,0 +1,65 @@
+/* Hero Styles */
+.hero {
+  position: relative;
+  height: 16rem;
+  background-color: #111827;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  /* background-image: url("./public/modern-living-room-interior-with-sofa-and-plants.png"); */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.breadcrumb-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+  color: #34d399;
+}
+
+.breadcrumb-current {
+  color: #34d399;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}

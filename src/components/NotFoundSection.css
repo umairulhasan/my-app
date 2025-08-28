@@ -1,0 +1,138 @@
+/* Not Found Section */
+.not-found-section {
+  flex: 1;
+  background-color: #f9fafb;
+  padding: 4rem 1rem;
+}
+
+.not-found-container {
+  max-width: 32rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.illustration {
+  margin-bottom: 2rem;
+}
+
+.illustration-circle {
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mountains {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Trees */
+.tree {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree-1 { bottom: 5rem; left: 4rem; }
+.tree-2 { bottom: 6rem; right: 5rem; }
+.tree-3 { bottom: 4rem; right: 3rem; }
+
+.tree-top {
+  width: 1rem;
+  height: 2rem;
+  background-color: #047857;
+  border-radius: 50%;
+}
+
+.tree-top-large {
+  width: 1.5rem;
+  height: 2.5rem;
+  background-color: #059669;
+}
+
+.tree-top-small {
+  width: 0.75rem;
+  height: 1.5rem;
+  background-color: #065f46;
+}
+
+.tree-trunk {
+  width: 0.5rem;
+  height: 1rem;
+  background-color: #92400e;
+}
+
+.tree-trunk-small {
+  width: 0.25rem;
+  height: 0.75rem;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  background-color: white;
+  border-radius: 50px;
+  opacity: 0.8;
+}
+
+.cloud-1 { top: 3rem; left: 3rem; width: 4rem; height: 2rem; }
+.cloud-2 { top: 2rem; right: 4rem; width: 3rem; height: 1.5rem; opacity: 0.7; }
+.cloud-3 { top: 4rem; right: 2rem; width: 2rem; height: 1rem; opacity: 0.6; }
+
+.error-text {
+  position: relative;
+  z-index: 10;
+  font-size: 5rem;
+  font-weight: 900;
+  color: #111827;
+}
+
+/* Text */
+.not-found-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.not-found-description {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.back-home-btn {
+  background-color: #10b981;
+  color: white;
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+}
+
+.back-home-btn:hover {
+  background-color: #059669;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .illustration-circle {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .error-text {
+    font-size: 4rem;
+  }
+}
